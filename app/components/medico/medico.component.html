@@ -1,0 +1,33 @@
+<h1 style="text-align: center;">Médicos</h1>
+
+<div class="buttonContainer">
+<button (click)="agregarMedico()" class="botonAgregar">Añadir médico</button>
+</div>
+
+<br>
+<br>
+
+<div class="tabla">
+    <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>NumColegiado</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medico of medicos">
+            <td>{{ medico?.id }}</td>
+            <td>{{ medico?.nombre }}</td>
+            <td>{{ medico?.apellidos }}</td>
+            <td>{{ medico?.numColegiado }}</td>
+            <td><button type="button" class="btn btn-success">Editar</button>
+              <button type="button" class="btn btn-danger">Eliminar</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>

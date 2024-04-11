@@ -1,0 +1,30 @@
+<h1 style="text-align: center;">Usuarios</h1>
+
+<div class="buttonContainer">
+<button (click)="agregarUsuario()" class="botonAgregar">Añadir usuario</button>
+</div>
+
+<br><br>
+
+<div class="tabla">
+    <table border="1" >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario?.id }}</td>
+            <td>{{ usuario?.nombre }}</td>
+            <td>{{ usuario?.apellidos }}</td>
+            <td><button type="button" class="btn btn-success" (click)="editar(usuario)" >Editar</button>
+            <button type="button" class="btn btn-danger" (click)="eliminar(usuario.id)">Eliminar</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>

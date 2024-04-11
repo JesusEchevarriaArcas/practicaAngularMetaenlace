@@ -1,0 +1,42 @@
+<div class="formularioRegistro">
+    <h2>Crear paciente</h2>
+
+    <form [formGroup]="pacienteForm" (ngSubmit)="guardar()">
+        <div class="form-group">
+            <label>Nombre </label>
+            <br>
+            <input type="text" formControlName="nombre" class="form-group">
+        </div>
+        <div class="form-group">
+            <label>Apellidos </label>
+            <br>
+            <input type="text" formControlName="apellidos" class="form-group">
+        </div>
+        <div class="form-group">
+            <label>Clave </label>
+            <br>
+            <input type="password" formControlName="clave" class="form-group">
+        </div>
+        <div class="form-group">
+            <label>Número de la Seguridad Social </label>
+            <br>
+            <input type="text" formControlName="nss" class="form-group">
+        </div>
+        <div class="form-group">
+            <label>Número de la tarjeta de salud </label>
+            <br>
+            <input type="text" formControlName="numTarjeta" class="form-group">
+        </div>
+        <div class="form-group">
+            <label>Número de teléfono </label>
+            <br>
+            <input type="text" formControlName="telefono" class="form-group">
+        </div>
+        <div class="form-group">
+            <label>Dirección </label>
+            <br>
+            <input type="text" formControlName="direccion" class="form-group">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="pacienteForm.invalid">Guardar</button>
+    </form>
+</div>

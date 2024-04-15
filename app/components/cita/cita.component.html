@@ -1,0 +1,67 @@
+<h1 style="text-align: center;">Citas</h1>
+
+<br><br>
+
+<div class="tabla">
+    <table border="1" >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fecha y hora</th>
+            <th>Motivo de la Cita</th>
+            <th>attribute11</th>
+            <th>pacienteId</th>
+            <th>medicoId</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citas">
+            <td>{{ cita?.id }}</td>
+            <td>{{ cita?.fechaHora }}</td>
+            <td>{{ cita?.motivoCita }}</td>
+            <td>{{ cita?.attribute11 }}</td>
+            <td>{{ cita?.pacienteId }}</td>
+            <td>{{ cita?.medicoId }}</td>
+            <td><button type="button" class="btn btn-success" (click)="editar(cita)" >Editar</button>
+            <button type="button" class="btn btn-danger" (click)="eliminar(cita.id)">Eliminar</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+
+<br><br>
+
+<div class="formularioRegistro">
+  <h2>Crear cita</h2>
+
+  <form [formGroup]="citaForm" (ngSubmit)="guardar()">
+      <div class="form-group">
+          <label>Fecha y Hora (formato 2024-04-15T09:11)</label>
+          <br>
+          <input type="text" formControlName="fechaHora" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Motivo de la Cita </label>
+          <br>
+          <input type="text" formControlName="motivoCita" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>attribute11 </label>
+          <br>
+          <input type="password" formControlName="attribute11" class="form-group">
+      </div>
+      <div class="form-group">
+        <label>pacienteId </label>
+        <br>
+        <input type="password" formControlName="attribute11" class="form-group">
+    </div>
+    <div class="form-group">
+        <label>medicoId </label>
+        <br>
+        <input type="password" formControlName="attribute11" class="form-group">
+    </div>
+      <button type="submit" class="btn btn-primary" [disabled]="citaForm.invalid">Guardar</button>
+  </form>
+</div>

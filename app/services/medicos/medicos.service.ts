@@ -23,4 +23,9 @@ export class MedicosService {
     return this.httpClient.post<any>(this.apiServer,medico);
   }
 
+  deleteMedico(id: any): Observable<any> {
+    return this.httpClient.delete<any>(this.apiServer + "/" + id);
+
+  }
+
 }

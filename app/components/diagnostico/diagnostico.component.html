@@ -1,0 +1,54 @@
+<h1 style="text-align: center;">Diagnosticos</h1>
+
+<br><br>
+
+<div class="tabla">
+    <table border="1" >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Valoracion especialista</th>
+            <th>Enfermedad</th>
+            <th>citaId</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let diagnostico of diagnosticos">
+            <td>{{ diagnostico?.id }}</td>
+            <td>{{ diagnostico?.valoracionEspecialista }}</td>
+            <td>{{ diagnostico?.enfermedad }}</td>
+            <td>{{ diagnostico?.citaId }}</td>
+            <td><button type="button" class="btn btn-success" (click)="editar(diagnostico)" >Editar</button>
+            <button type="button" class="btn btn-danger" (click)="eliminar(diagnostico.id)">Eliminar</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+
+<br><br>
+
+<div class="formularioRegistro">
+  <h2>Crear diagnostico</h2>
+
+  <form [formGroup]="diagnosticoForm" (ngSubmit)="guardar()">
+      <div class="form-group">
+          <label>Valoracion especialista</label>
+          <br>
+          <input type="text" formControlName="valoracionEspecialista" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Enfermedad</label>
+          <br>
+          <input type="text" formControlName="enfermedad" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>citaId </label>
+          <br>
+          <input type="text" formControlName="citaId" class="form-group">
+      </div>
+      
+      <button type="submit" class="btn btn-primary" [disabled]="diagnosticoForm.invalid">Guardar</button>
+  </form>
+</div>

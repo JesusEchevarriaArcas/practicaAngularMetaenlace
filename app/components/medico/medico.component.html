@@ -1,9 +1,5 @@
 <h1 style="text-align: center;">Médicos</h1>
 
-<div class="buttonContainer">
-<button (click)="agregarMedico()" class="botonAgregar">Añadir médico</button>
-</div>
-
 <br>
 <br>
 
@@ -24,10 +20,41 @@
             <td>{{ medico?.nombre }}</td>
             <td>{{ medico?.apellidos }}</td>
             <td>{{ medico?.numColegiado }}</td>
-            <td><button type="button" class="btn btn-success">Editar</button>
-              <button type="button" class="btn btn-danger">Eliminar</button> </td>
+            <td><button type="button" class="btn btn-success" (click)="editar(medico)">Editar</button>
+              <button type="button" class="btn btn-danger" (click)="eliminar(medico.id)">Eliminar</button> </td>
           </tr>
         </tbody>
       </table>
       
+</div>
+
+<br>
+
+
+<div class="formularioRegistro">
+  <h2>Crear médico</h2>
+
+  <form [formGroup]="medicoForm" (ngSubmit)="guardar()">
+      <div class="form-group">
+          <label>Nombre </label>
+          <br>
+          <input type="text" formControlName="nombre" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Apellidos </label>
+          <br>
+          <input type="text" formControlName="apellidos" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Clave </label>
+          <br>
+          <input type="password" formControlName="clave" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Número de colegiado </label>
+          <br>
+          <input type="text" formControlName="numColegiado" class="form-group">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="medicoForm.invalid">Guardar</button>
+  </form>
 </div>
